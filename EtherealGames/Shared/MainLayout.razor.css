@@ -12,7 +12,6 @@ header {
 }
 
 main {
-    margin: auto;
     width: 1200px;
 }
 
@@ -35,7 +34,7 @@ p {
     height: 32px;
 }
 
-    .logo #epic-games-shield {
+    .logo .epic-games-shield {
         margin-left: 0;
         margin-right: 10px;
     }
@@ -53,7 +52,6 @@ p {
 
 .arrow img {
     height: 20px;
-    margin: auto;
 }
 
 .pipe {
@@ -100,21 +98,18 @@ p {
 
     .profile .header-icon-btn {
         width: 32px;
-        margin: auto;
         margin-right: 19px;
         display: flex;
         cursor: pointer;
     }
 
-        .profile .header-icon-btn img[src*="globe"] {
+        .profile .header-icon-btn .icon-globe {
             height: 24px;
-            margin: auto;
             margin-right: 0;
         }
 
-        .profile .header-icon-btn img[src*="avatar"] {
+        .profile .header-icon-btn .icon-avatar {
             height: 32px;
-            margin: auto;
         }
 
     .profile .header-btn {
