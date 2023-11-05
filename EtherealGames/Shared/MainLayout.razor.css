@@ -1,0 +1,137 @@
+.page {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 32px;
+    background: #18181c;
+    display: flex;
+    padding: 20px 24px;
+}
+
+main {
+    margin: auto;
+    width: 1200px;
+}
+
+p {
+    color: #aaaaae;
+    margin: auto;
+    padding: 0 16px;
+    font-size: 14px;
+}
+
+.header-item {
+    margin: auto;
+}
+
+.logo {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    width: 65px;
+    height: 32px;
+}
+
+    .logo #epic-games-shield {
+        margin-left: 0;
+        margin-right: 10px;
+    }
+
+    .logo .arrow {
+        height: 100%;
+        display: flex;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+        .logo .arrow:hover {
+            padding-top: 2px;
+        }
+
+.arrow img {
+    height: 20px;
+    margin: auto;
+}
+
+.pipe {
+    width: 2px;
+    background: #303034;
+    height: 32px;
+    margin-left: 15px;
+    margin-right: 30px;
+}
+
+.main-links {
+    display: flex;
+    margin-left: 0;
+}
+    .main-links img {
+        width: 54px;
+        margin-right: 10px;
+    }
+
+    .main-links .main-link-btn {
+        display: flex;
+        height: 32px;
+        border-radius: 12px;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+
+    .main-links .main-link-btn:hover {
+        background: #404044;
+    }
+
+        .main-links .main-link-btn p {
+            transition: 0.2s;
+        }
+
+        .main-links .main-link-btn:hover p {
+            color: #e6e6ea;
+        }
+
+.profile {
+    margin-right: 0;
+    display: flex;
+}
+
+    .profile .header-icon-btn {
+        width: 32px;
+        margin: auto;
+        margin-right: 19px;
+        display: flex;
+        cursor: pointer;
+    }
+
+        .profile .header-icon-btn img[src*="globe"] {
+            height: 24px;
+            margin: auto;
+            margin-right: 0;
+        }
+
+        .profile .header-icon-btn img[src*="avatar"] {
+            height: 32px;
+            margin: auto;
+        }
+
+    .profile .header-btn {
+        display: flex;
+        height: 32px;
+        border-radius: 8px;
+        background: #26bbff;
+        transition: 0.2s;
+        cursor: pointer;
+    }
+
+        .profile .header-btn:hover {
+            background: #61cdff;
+        }
+
+        .profile .header-btn p {
+            color: #101014;
+            font-weight: 500;
+        }
+

@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Inter;
+    src: url(../font/Inter.ttf)
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body, html{
+    height: 100%;
+    background: #121212;
+}
+
+p {
+    font-family: Inter;
+}
+
+input {
+    outline: none;
+    border: none;
+}
