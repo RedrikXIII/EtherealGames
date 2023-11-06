@@ -5,10 +5,11 @@
 }
 
 header {
-    height: 32px;
+    height: 72px;
     background: #18181c;
     display: flex;
     padding: 20px 24px;
+    box-sizing: border-box;
 }
 
 main {
@@ -32,6 +33,7 @@ p {
     display: flex;
     width: 65px;
     height: 32px;
+    cursor: pointer;
 }
 
     .logo .epic-games-shield {
@@ -42,15 +44,23 @@ p {
     .logo .arrow {
         height: 100%;
         display: flex;
-        transition: 0.3s;
-        cursor: pointer;
+        transition: 0.3s ease-in-out;
     }
 
-        .logo .arrow:hover {
-            padding-top: 2px;
+        .logo:hover .arrow {
+            transform: translateY(2px);
         }
 
-.arrow img {
+    .logo .arrow-path {
+        transition: 0.3s;
+        fill: #aaaaae;
+    }
+
+        .logo:hover .arrow-path {
+            fill: #e6e6ea;
+        }
+
+.arrow svg {
     height: 20px;
 }
 
@@ -108,9 +118,27 @@ p {
             margin-right: 0;
         }
 
+            .profile .header-icon-btn .icon-globe path {
+                fill: #aaaaae;
+                transition: 0.2s;
+            }
+
+                .profile .header-icon-btn:hover .icon-globe path {
+                    fill: #e6e6ea;
+                }
+
         .profile .header-icon-btn .icon-avatar {
             height: 32px;
         }
+
+            .profile .header-icon-btn .icon-avatar path {
+                fill: #aaaaae;
+                transition: 0.2s;
+            }
+
+                .profile .header-icon-btn:hover .icon-avatar path {
+                    fill: #e6e6ea;
+                }
 
     .profile .header-btn {
         display: flex;
