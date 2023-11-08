@@ -1,0 +1,11 @@
+﻿.slider-area {
+    display: flex;
+    /*height: 570px;*/
+    height: 627px;
+}
+
+.slider-area .cards {
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+} 
