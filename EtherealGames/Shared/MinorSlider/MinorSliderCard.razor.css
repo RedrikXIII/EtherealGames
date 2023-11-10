@@ -1,0 +1,78 @@
+﻿.card {
+    width: 211.5px;
+    margin-right: 32px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+    .card .image {
+        border-radius: 4px;
+        overflow: hidden;
+        position: relative;
+        height: 282px;
+    }
+
+        .card .image img {
+            width: 211.5px;
+        }
+
+        .card .image:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 215px;
+            height: 100%;
+            transition: 0.2s;
+        }
+
+        .card .image:hover:after {
+            background: #ffffff19;
+        }
+
+    .card .title {
+        color: #f5f5f5;
+        margin-top: 3px;
+        margin-bottom: 3px;
+    }
+
+    .card .tag {
+        color: #7b7b7b;
+        font-weight: bold;
+        font-size: 10px;
+        margin-top: 6px;
+        margin-bottom: 3px;
+    }
+
+.price-area {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+    .price-area .percent {
+        margin: auto auto auto 0;
+        background: #0074e4;
+        border-radius: 4px;
+        color: #f5f5f5;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        font-size: 12px;
+    }
+
+    .price-area .price-change {
+        margin: auto 0 auto auto;
+        font-size: 14px;
+    }
+
+        .price-area .price-change .initial-price {
+            text-decoration-line: line-through;
+            color: #7b7b7b;
+        }
+
+        .price-area .price-change .new-price {
+            color: #f5f5f5;
+        }
+
+

@@ -1,8 +1,10 @@
 ﻿.slider-poster {
     /*    width: 1014px;
     min-width: 1014px;*/
-    width: 1115px;
-    min-width: 1115px;
+    /*width: 1115px;
+    min-width: 1115px;*/
+    width: 1176px;
+    min-width: 1176px;
     border-radius: 16px;
     overflow: hidden;
     position: relative;
@@ -19,11 +21,13 @@
         pointer-events: none;
     }
 
-    .slider-poster img{
+    .slider-poster img {
         border-radius: 16px;
         /*width: 1014px;
         min-width: 1014px;*/
-        width: 1115px;
-        min-width: 1115px;
+        /*width: 1115px;
+        min-width: 1115px;*/
+        width: 1176px;
+        min-width: 1176px;
         height: 100%;
     }
