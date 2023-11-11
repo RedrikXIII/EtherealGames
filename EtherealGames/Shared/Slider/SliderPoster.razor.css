@@ -31,3 +31,7 @@
         min-width: 1176px;
         height: 100%;
     }
+
+    .slider-poster p {
+        color: #fff;
+    }

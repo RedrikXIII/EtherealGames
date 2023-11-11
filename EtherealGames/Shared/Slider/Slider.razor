@@ -1,15 +1,67 @@
 ﻿<div class="slider-area">
-    <SliderPoster></SliderPoster>
+    <SliderPoster Slide="Active"></SliderPoster>
     <div class="cards">
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
-        <SliderCard></SliderCard>
+        @foreach(var slide in slides)
+        {
+            <SliderCard Slide="slide" Current="Active" OnNext="Next" OnClick="Click"></SliderCard>
+        }
     </div>
 </div>
 
 @code {
+    public SliderModel Active { get; set;  }
 
+    static List<SliderModel> slides = new List<SliderModel>
+    {
+        new SliderModel()
+        {
+            Title = "Farlight 84",
+            Image = "https://cdn2.unrealengine.com/egs-farlight-84-carousel-thumb-1200x1600-1a3698d6350b.jpg?h=128&amp"
+        },
+        new SliderModel()
+        {
+            Title = "Test 1",
+            Image = "https://cdn2.unrealengine.com/egs-farlight-84-carousel-thumb-1200x1600-1a3698d6350b.jpg?h=128&amp"
+        },
+        new SliderModel()
+        {
+            Title = "Test 2",
+            Image = "https://cdn2.unrealengine.com/egs-farlight-84-carousel-thumb-1200x1600-1a3698d6350b.jpg?h=128&amp"
+        },
+        new SliderModel()
+        {
+            Title = "Test 3",
+            Image = "https://cdn2.unrealengine.com/egs-farlight-84-carousel-thumb-1200x1600-1a3698d6350b.jpg?h=128&amp"
+        },
+        new SliderModel()
+        {
+            Title = "Test 4",
+            Image = "https://cdn2.unrealengine.com/egs-farlight-84-carousel-thumb-1200x1600-1a3698d6350b.jpg?h=128&amp"
+        },
+        new SliderModel()
+        {
+            Title = "Test 5",
+            Image = "https://cdn2.unrealengine.com/egs-farlight-84-carousel-thumb-1200x1600-1a3698d6350b.jpg?h=128&amp"
+        },
+    };
+
+    protected override void OnInitialized()
+    {
+        Active = slides[0];
+    }
+
+    [JSInvokable]
+    public void Next(SliderModel slide) 
+    {
+        int index = slides.IndexOf(slide);
+        int next = (index + 1) % slides.Count;
+        Active = slides[next];
+    }
+
+    [JSInvokable]
+    public void Click(SliderModel slide)
+    {
+        int index = slides.IndexOf(slide);
+        Active = slides[index];
+    }
 }

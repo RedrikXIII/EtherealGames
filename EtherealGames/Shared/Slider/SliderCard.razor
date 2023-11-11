@@ -1,12 +1,77 @@
-﻿<div class="slider-card">
+﻿@inject IJSRuntime js
+
+<div class="slider-card @(isActive ? "active" : "")" @ref="slide">
     <div class="icon">
-        <img src="https://cdn2.unrealengine.com/egs-farlight-84-carousel-thumb-1200x1600-1a3698d6350b.jpg?h=128&amp" />
+        <img src="@Slide.Image" />
     </div>
     <div class="title">
-        <p>Farlight 84</p>
+        <p>@Slide.Title</p>
     </div>
 </div>
 
 @code {
+    private IJSObjectReference? jsModule;
+    private DotNetObjectReference<SliderCard> component;
+    public ElementReference slide;
 
+    public bool isActive;
+    private bool isLoad;
+
+    [Parameter]
+    public SliderModel Slide { get; set;  }
+
+    [Parameter]
+    public SliderModel Current { get; set; }
+
+    [Parameter]
+    public EventCallback<SliderModel> OnNext { get; set; }
+
+    [Parameter]
+    public EventCallback<SliderModel> OnClick { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            jsModule = await js.InvokeAsync<IJSObjectReference>("import", "./Shared/Slider/SliderCard.razor.js");
+            var dotnet = DotNetObjectReference.Create(this);
+            await jsModule!.InvokeVoidAsync("SliderCard.AddClick", dotnet, slide);
+            isLoad = true;
+            await SetTimeout();
+        }
+
+    }
+
+    protected async Task SetTimeout()
+    {
+        if (isActive)
+        {
+            var dotnet = DotNetObjectReference.Create(this);
+            await jsModule!.InvokeVoidAsync("SliderCard.SetTimeout", dotnet, slide);
+        }
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        isActive = Slide == Current;
+        if (isActive && isLoad)
+        {
+            await SetTimeout();
+        }
+    }
+
+    [JSInvokable]
+    public async Task Next()
+    {
+        if (isActive)
+        {
+            await OnNext.InvokeAsync(Slide);
+        }
+    }
+
+    [JSInvokable]
+    public async Task Click()
+    {
+        await OnClick.InvokeAsync(Slide);
+    }
 }
