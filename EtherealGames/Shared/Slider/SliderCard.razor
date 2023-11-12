@@ -34,8 +34,7 @@
         if (firstRender)
         {
             jsModule = await js.InvokeAsync<IJSObjectReference>("import", "./Shared/Slider/SliderCard.razor.js");
-            var dotnet = DotNetObjectReference.Create(this);
-            await jsModule!.InvokeVoidAsync("SliderCard.AddClick", dotnet, slide);
+            await AddClick();
             isLoad = true;
             await SetTimeout();
         }
@@ -49,6 +48,12 @@
             var dotnet = DotNetObjectReference.Create(this);
             await jsModule!.InvokeVoidAsync("SliderCard.SetTimeout", dotnet, slide);
         }
+    }
+
+    protected async Task AddClick()
+    {
+        var dotnet = DotNetObjectReference.Create(this);
+        await jsModule!.InvokeVoidAsync("SliderCard.AddClick", dotnet, slide);
     }
 
     protected override async Task OnParametersSetAsync()
