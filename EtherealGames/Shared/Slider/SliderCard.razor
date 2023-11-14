@@ -26,60 +26,12 @@
     [Parameter]
     public EventCallback<SliderModel> OnNext { get; set; }
 
-    [Parameter]
-    public EventCallback<SliderModel> OnClick { get; set; }
-
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        if (firstRender)
-        {
-            jsModule = await js.InvokeAsync<IJSObjectReference>("import", "./Shared/Slider/SliderCard.razor.js");
-            await AddClick();
-            isLoad = true;
-            await SetTimeout();
-        }
-
-    }
-
-    protected async Task SetTimeout()
-    {
-        if (isActive)
-        {
-            var dotnet = DotNetObjectReference.Create(this);
-            await jsModule!.InvokeVoidAsync("SliderCard.SetTimeout", dotnet, slide);
-        }
-    }
-
-    protected async Task AddClick()
-    {
-        var dotnet = DotNetObjectReference.Create(this);
-        await jsModule!.InvokeVoidAsync("SliderCard.AddClick", dotnet, slide);
-    }
-
-    protected override async Task OnParametersSetAsync()
-    {
-        isActive = Slide == Current;
-        if (isActive && isLoad)
-        {
-            await SetTimeout();
-        }
-    }
-
     [JSInvokable]
     public async Task Next()
     {
         if (isActive)
         {
             await OnNext.InvokeAsync(Slide);
-        }
-    }
-
-    [JSInvokable]
-    public async Task Click()
-    {
-        if (!isActive)
-        {
-            await OnClick.InvokeAsync(Slide);
         }
     }
 }
