@@ -1,37 +1,56 @@
-﻿@inject IJSRuntime js
+﻿<div class="slider-card @(Slide.IsActive ? "active" : "")" 
+                        @onmouseover="Enable"
+                        @onmouseout="Disable"
+                        @onclick="ChoiceSlide">
 
-<div class="slider-card @(isActive ? "active" : "")" @ref="slide">
-    <div class="icon">
+    <div class="slide-item icon">
         <img src="@Slide.Image" />
     </div>
-    <div class="title">
+    <div class="slider-item title">
         <p>@Slide.Title</p>
     </div>
 </div>
 
 @code {
-    private IJSObjectReference? jsModule;
-    private DotNetObjectReference<SliderCard> component;
-    public ElementReference slide;
 
-    public bool isActive;
-    private bool isLoad;
+    [Parameter]
+    public Slider SlideComponent { get; set; }
 
     [Parameter]
     public SliderModel Slide { get; set;  }
 
     [Parameter]
-    public SliderModel Current { get; set; }
+    public EventCallback OnNext { get; set; }
 
     [Parameter]
-    public EventCallback<SliderModel> OnNext { get; set; }
+    public EventCallback OnOpen { get; set; }
 
-    [JSInvokable]
-    public async Task Next()
+    [Parameter]
+    public EventCallback<SliderModel> OnShow { get; set; }
+
+    private void Enable()
     {
-        if (isActive)
+        Slide.IsHover = true;
+    }
+
+    private async void Disable()
+    {
+        Slide.IsHover = false;
+        if (Slide.IsActive && SlideComponent.SlideHover)
         {
-            await OnNext.InvokeAsync(Slide);
+            await OnNext.InvokeAsync();
+        }
+    }
+
+    private async void ChoiceSlide()
+    {
+        if (Slide.IsActive)
+        {
+            await OnOpen.InvokeAsync();
+        }
+        else
+        {
+            await OnShow.InvokeAsync(Slide);
         }
     }
 }

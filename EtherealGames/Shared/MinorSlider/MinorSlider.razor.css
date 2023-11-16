@@ -13,7 +13,7 @@
     width: 100%;
 }
 
-.container {
+.slider-item {
     display: flex;
     margin: auto;
 }
@@ -77,15 +77,18 @@
                 background: #2b2b2b;
             }
 
-    .move-buttons .left-button-path {
+    .move-buttons .button:first-child {
         transform-origin: 50% 50%;
         transform: rotate(180deg);
+    }
+
+    .move-buttons .button:first-child {
+
     }
 
 .slider-cards {
     display: flex;
     flex-direction: row;
-    /*overflow: scroll;*/
     overflow: hidden;
     height: 100%;
 }

@@ -13,6 +13,10 @@
     overflow: hidden;
 }
 
+    .slider-card .slider-item {
+        pointer-events: none;
+    }
+
     .slider-card.active, .slider-card:hover {
         background: #1a1a1a;
     }
