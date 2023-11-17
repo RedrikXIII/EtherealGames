@@ -1,12 +1,15 @@
 ﻿.slider-area {
     display: flex;
-    /*height: 570px;*/
-    /*height: 627px;*/
-    height: 662px;
 }
 
-.slider-area .cards {
-    display: flex;
-    flex-direction: column;
-    margin-left: 16px;
-} 
+    .slider-area .cards {
+        display: flex;
+        flex-direction: column;
+        margin-left: 32px;
+        margin-right: 0;
+    } 
+
+    p {
+        font-size: 30px;
+        color: #fff;
+    }

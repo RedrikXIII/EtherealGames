@@ -20,17 +20,18 @@
         </div>
     </div>
     <div class="slider-cards">
-        <MinorSliderCard></MinorSliderCard>
-        <MinorSliderCard></MinorSliderCard>
-        <MinorSliderCard></MinorSliderCard>
-        <MinorSliderCard></MinorSliderCard>
-        <MinorSliderCard></MinorSliderCard>
-        <MinorSliderCard></MinorSliderCard>
-        <MinorSliderCard></MinorSliderCard>
-        <MinorSliderCard></MinorSliderCard>
+        @foreach (var game in Games)
+        {
+            <MinorSliderCard Game="game"></MinorSliderCard>
+        }
     </div>
 </div>
 
 @code {
+    public List<GameModel> Games { get; set; }
 
+    protected override async Task OnInitializedAsync()
+    {
+        Games = DatabaseMoq.Games;
+    }
 }

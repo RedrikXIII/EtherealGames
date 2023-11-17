@@ -1,20 +1,48 @@
-﻿<div class="card">
+﻿@inject NavigationManager navigation
+
+<div class="card" @onclick="OpenGame">
     <div class="image">
         <img src="https://cdn1.epicgames.com/offer/038295c445bb40d1b06545fd75741af1/EGS_KerbalSpaceProgram2_InterceptGames_S2_1200x1600-a28fc59b570d183358da192385d777d5?h=480&amp" />
     </div>
     <p class="tag">BASE GAME</p>
-    <p class="title">Kerbal Space Program 2</p>
+    <p class="title">@Game.Title</p>
     <div class="price-area">
-        <div class="percent">
-            <p>-20%</p>
-        </div>
-        <div class="price-change">
-            <p class="initial-price"> CHF 52.90 </p>
-            <p class="new-price">CHF 42.32</p>
-        </div>
+        @if (Game.Sale != 0)
+        {
+            <div class="percent">
+                <p>-@Game.Sale</p>
+            </div>
+            <div class="price-change">
+                <p class="initial-price"> @Game.Price UAH</p>
+                <p class="new-price"> @GetPrice(Game.Price, Game.Sale) UAH</p>
+            </div>
+        }
+        else if (Game.Price == 0)
+        {
+            <div class="price-change">
+                <p class="new-price">Free</p>
+            </div>
+        }
+        else 
+        {
+            <div class="price-change">
+                <p class="new-price"> @GetPrice(Game.Price, Game.Sale) UAH</p>
+            </div>
+        }
     </div>
 </div>
 
 @code {
+    [Parameter]
+    public GameModel Game { get; set; }
 
+    private void OpenGame()
+    {
+        navigation.NavigateTo($"/game/{Game.Id}");
+    }
+
+    public double GetPrice(double price, double sale)
+    {
+        return price - price * sale / 100;
+    }
 }

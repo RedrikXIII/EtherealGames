@@ -13,8 +13,8 @@ header {
 }
 
 main {
-    /*width: 1302px;*/
-    width: 1432px;
+    margin: auto;
+    width: 75vw;
 }
 
 p {

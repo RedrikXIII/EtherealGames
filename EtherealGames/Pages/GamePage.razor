@@ -1,0 +1,15 @@
+﻿@page "/game/{Id:guid}"
+
+<h3 style="color: #fff">@game.Title</h3>
+
+@code {
+    GameModel game;
+
+    [Parameter]
+    public Guid Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        game = DatabaseMoq.Games.First(g => g.Id == Id);
+    }
+}

@@ -9,7 +9,6 @@
     display: flex;
     flex-direction: row;
     height: 30px;
-    margin-bottom: 20px;
     width: 100%;
 }
 
@@ -21,7 +20,6 @@
 .title-area {
     margin-left: 0;
     cursor: pointer;
-    height: 100%;
     width: 170px;
 }
 
@@ -64,7 +62,7 @@
             stroke: #7b7b7b;
         }
 
-        .move-buttons .button.active svg path{
+        .move-buttons .button.active path{
             stroke: #f5f5f5;
         }
 
@@ -78,15 +76,15 @@
             }
 
     .move-buttons .button:first-child {
-        transform-origin: 50% 50%;
         transform: rotate(180deg);
     }
 
-    .move-buttons .button:first-child {
+    .move-buttons .button:last-child {
 
     }
 
 .slider-cards {
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     overflow: hidden;
