@@ -1,7 +1,9 @@
-﻿<div class="slider">
+﻿@inject IStringLocalizer<MinorSlider> localizer
+
+<div class="slider">
     <div class="slider-header">
         <div class="title-area slider-item">
-            <p class="title">Games On Sale</p>
+            <p class="title">@localizer["On Sale"]</p>
             <svg class="title-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 9">
                 <path class="title-arrow-path" d="M1 1l3 3.5L1 8" stroke="#f5f5f5" fill="none" fill-rule="evenodd"></path>
             </svg>
@@ -28,6 +30,9 @@
 </div>
 
 @code {
+    [CascadingParameter]
+    public CultureInfo CurrentCulture { get; set; }
+
     public List<GameModel> Games { get; set; }
 
     protected override async Task OnInitializedAsync()

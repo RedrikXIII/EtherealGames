@@ -21,6 +21,11 @@
         new CultureInfo("en")
     };
 
+    protected async override Task OnInitializedAsync()
+    {
+        await OnCultureChoice.InvokeAsync(cultures[1]);
+    }
+
     private async Task ChoiceCulture(CultureInfo culture)
     {
         await OnCultureChoice.InvokeAsync(culture);

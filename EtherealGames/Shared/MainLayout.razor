@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject IStringLocalizer<MainLayout> localizer
 
 <PageTitle>EtherealGames</PageTitle>
 <CascadingValue Value="CurrentCulture">
@@ -20,11 +21,11 @@
                     <img src="https://media.graphassets.com/qAiDvosPSFGqJxTVuY7h" />
                 </div>
                 <div class="main-link-btn">
-                    <p>Distribution</p>
+                    <p>@localizer["Distribution"]</p>
 
                 </div>
                 <div class="main-link-btn">
-                    <p>Support</p>
+                    <p>@localizer["Support"]</p>
                 </div>
                 <div class="main-link-btn">
                     <p>Unreal Engine</p>
@@ -44,7 +45,7 @@
                     </svg>
                 </div>
                 <div class="header-btn">
-                    <p>Download</p>
+                    <p>@localizer["Download"]</p>
                 </div>
             </div>
         </header>

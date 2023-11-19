@@ -1,10 +1,11 @@
 ﻿@inject NavigationManager navigation
+@inject IStringLocalizer<MinorSliderCard> localizer
 
 <div class="card" @onclick="OpenGame">
     <div class="image">
         <img src="@Game.SmallImageUrl" />
     </div>
-    <p class="tag">BASE GAME</p>
+    <p class="tag">@localizer["Base Game"]</p>
     <p class="title">@Game.Title</p>
     <div class="price-area">
         @if (Game.Discount != 0)
@@ -20,7 +21,7 @@
         else if (Game.Price == 0)
         {
             <div class="price-change">
-                <p class="new-price">Free</p>
+                <p class="new-price">@localizer["Free"]</p>
             </div>
         }
         else 

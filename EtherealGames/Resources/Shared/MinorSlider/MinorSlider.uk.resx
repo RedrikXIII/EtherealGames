@@ -117,16 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Browse" xml:space="preserve">
-    <value>Browse</value>
-  </data>
-  <data name="Discover" xml:space="preserve">
-    <value>Discover</value>
-  </data>
-  <data name="News" xml:space="preserve">
-    <value>News</value>
-  </data>
-  <data name="Search" xml:space="preserve">
-    <value>Search store</value>
+  <data name="On Sale" xml:space="preserve">
+    <value>Ігри зі знижками</value>
   </data>
 </root>
