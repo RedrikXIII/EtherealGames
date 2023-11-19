@@ -2,19 +2,19 @@
 
 <div class="card" @onclick="OpenGame">
     <div class="image">
-        <img src="https://cdn1.epicgames.com/offer/038295c445bb40d1b06545fd75741af1/EGS_KerbalSpaceProgram2_InterceptGames_S2_1200x1600-a28fc59b570d183358da192385d777d5?h=480&amp" />
+        <img src="@Game.SmallImageUrl" />
     </div>
     <p class="tag">BASE GAME</p>
     <p class="title">@Game.Title</p>
     <div class="price-area">
-        @if (Game.Sale != 0)
+        @if (Game.Discount != 0)
         {
             <div class="percent">
-                <p>-@Game.Sale</p>
+                <p>-@Game.Discount%</p>
             </div>
             <div class="price-change">
-                <p class="initial-price"> @Game.Price UAH</p>
-                <p class="new-price"> @GetPrice(Game.Price, Game.Sale) UAH</p>
+                <p class="initial-price">UAH @Game.Price</p>
+                <p class="new-price">UAH @GetPrice(Game.Price, Game.Discount)</p>
             </div>
         }
         else if (Game.Price == 0)
@@ -26,7 +26,7 @@
         else 
         {
             <div class="price-change">
-                <p class="new-price"> @GetPrice(Game.Price, Game.Sale) UAH</p>
+                <p class="new-price">UAH @GetPrice(Game.Price, Game.Discount) </p>
             </div>
         }
     </div>
@@ -43,6 +43,6 @@
 
     public double GetPrice(double price, double sale)
     {
-        return price - price * sale / 100;
+        return Math.Round(price - price * sale / 100, 2);
     }
 }

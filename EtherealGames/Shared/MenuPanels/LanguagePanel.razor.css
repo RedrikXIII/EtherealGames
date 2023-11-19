@@ -1,0 +1,33 @@
+﻿.language-panel {
+    width: 163px;
+    position: fixed;
+    right: 80px;
+    top: 80px;
+    padding: 24px 8px;
+    background: #202024;
+    z-index: 10;
+    border-radius: 8px;
+}
+
+
+    .language-panel .language {
+        color: #aaaaae;
+        font-size: 16px;
+        margin-top: 5px;
+        padding: 6px 12px;
+        border-radius: 8px;
+        transition: 0.2s;
+    }
+
+        .language-panel .language:first-child {
+            margin-top: 0;
+        }
+
+    .language-panel .language:hover {
+        color: #e6e6ea;
+        background: #404044;
+    }
+
+    .language-panel .language.active {
+        color: #fff;
+    }

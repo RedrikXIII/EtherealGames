@@ -1,0 +1,28 @@
+﻿<div class="language-panel">
+    @foreach (var culture in cultures)
+    {
+        <p class="language @(CurrentCulture == culture ? "active" : "")" 
+            @onclick="() => ChoiceCulture(culture)">
+            @culture.NativeName.MakeCapital()
+        </p>
+    }
+</div>
+
+@code {
+    [CascadingParameter]
+    public CultureInfo CurrentCulture { get; set; }
+
+    [Parameter]
+    public EventCallback<CultureInfo> OnCultureChoice { get; set; }
+
+    CultureInfo[] cultures = new CultureInfo[]
+    {
+        new CultureInfo("uk"),
+        new CultureInfo("en")
+    };
+
+    private async Task ChoiceCulture(CultureInfo culture)
+    {
+        await OnCultureChoice.InvokeAsync(culture);
+    }
+}

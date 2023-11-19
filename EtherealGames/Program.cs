@@ -1,3 +1,4 @@
+using EtherealGames.Extensions;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 
@@ -11,6 +12,7 @@ namespace EtherealGames
 
             builder.Services.AddRazorPages();
             builder.Services.AddServerSideBlazor();
+            builder.Services.AddLocalization(o => o.ResourcesPath = "Resources");
 
             var app = builder.Build();
 
@@ -26,6 +28,8 @@ namespace EtherealGames
             app.UseStaticFiles();
 
             app.UseRouting();
+
+            app.UseLocalization();
 
             app.MapBlazorHub();
             app.MapFallbackToPage("/_Host");

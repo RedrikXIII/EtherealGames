@@ -1,4 +1,6 @@
-﻿<div class="header-search">
+﻿@inject IStringLocalizer<HeaderSearch> localizer
+
+<div class="header-search">
     <div class="inner-element search-bar">
         <div class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" class="svg css-uwwqev element" viewBox="0 0 21 20" preserveAspectRatio="xMidYMid meet">
@@ -18,11 +20,18 @@
             <p>Browse</p>
         </div>
         <div class="header-search-btn element">
-            <p>News</p>
+            <p>@localizer["News"]</p>
         </div>
     </div>
 </div>
 
 @code {
+    [CascadingParameter]
+    public CultureInfo CurrentCulture { get; set; }
 
+    protected override void OnParametersSet()
+    {
+        CultureInfo.CurrentCulture = CurrentCulture;
+        CultureInfo.CurrentUICulture = CurrentCulture;
+    }
 }
