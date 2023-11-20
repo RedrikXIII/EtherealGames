@@ -1,12 +1,134 @@
 ﻿@page "/game/{Id:guid}"
+@inject IStringLocalizer<GamePage> localizer
 
-<h3 style="color: #fff">@game.Title</h3>
+<div class="game-page">
+    <p class="title">@game.Title</p>
+    <div class="nav-bar">
+        <p class="nav-option active">@localizer["Overview"]</p>
+        <p class="nav-option">@localizer["FAQ"]</p>
+    </div>
+    <div class="info-area">
+        <div class="main-bar page-item">
+            @* Здесь должен быть отдельный компонент с видео и перемоткой *@
+            <p class="short-description">As Oirbo you will explore a labyrinthian spacecraft and discover its mysteries and purpose. Navigate a huge Metroidvania-inspired, hand-drawn, 2D action platformer full of secrets to uncover, areas to explore, and enemies to dismantle.</p>
+            <div class="main-points">
+                <div class="genres">
+                    <p class="point-name">@localizer["Genres"]</p>
+                    <p class="point-links">Action-Adventure, Exploration, Open-World</p>
+                </div>
+                <div class="features">
+                    <p class="point-name">@localizer["Features"]</p>
+                    <p class="point-links">Cloud-Saves, Controller Support, Single Player</p>
+                </div>
+            </div>
+            <p class="mini mini-title">
+                Assemble yourself in a hostile spacecraft where almost everything that moves is trying to get you. The reason? Yours to discover!
+            </p>
+            <p class="mini mini-text">
+                Explore, fight, and learn your purpose in this galactic action-adventure.
+            </p>
+            <p class="mini mini-text">
+                Oirbo is a 2D action-platformer adventure that takes place on a huge spacecraft divided into interconnected areas. Search in every section for the pieces that make out the history of the journey and enhance your skills and components to get to new heights.
+            </p>
+            <p class="mini mini-text">
+                Explore a massive spaceship to find answers, but beware the army of robots that are coming for you; avoid them; fight them or simply outsmart them in this futuristic hand-drawn adventure in space!
+            </p>
+            @for (int i = 0; i < 20; i++)
+            {
+                <p class="mini mini-text">
+                    Content @i
+                </p>
+            }
+        </div>
+        <div class="side-bar page-item">
+            <img class="logo" src="https://cdn1.epicgames.com/spt-assets/2d4f1465e9254425b5b03c8a429d4d9b/oirbo-logo-k3yyp.png?h=270&amp" />
+            
+            <div class="pegi">
+                <img class="pegi-image" src="https://cdn1.epicgames.com/gameRating/gameRating/PEGI_3_192_192x192-490b93ddf59fb4ac1148d1eb9083626a" />
+                <div class="pegi-info">
+                    <p class="pegi-name">PEGI 3</p>
+                    <p class="pegi-description">Fear</p>
+                </div>
+            </div>
+
+            <div class="tags">
+                <p class="tag">@localizer["Base game"]</p>
+            </div>
+
+            <div class="price-area">
+                @if (game.Discount != 0)
+                {
+                    <p class="discount">-@game.Discount%</p>
+                    <p class="initial-price">UAH @game.Price</p>
+                    <p class="new-price">UAH @game.GetPrice()</p>
+                }
+                else if (game.Price == 0)
+                {
+                    <p class="new-price">@localizer["Free"]</p>
+                }
+                else
+                {
+                    <p class="new-price">UAH @game.GetPrice() </p>
+                }
+            </div>
+
+            <div class="buy button">
+                <p>@localizer["Buy now"]</p>
+            </div>
+            <div class="add-cart button">
+                <p>@localizer["Add to Cart"]</p>
+            </div>
+            <div class="add-wishlist button">
+                <p>@localizer["Add to Wishlist"]</p>
+            </div>
+
+            <div class="stats-info">
+                <div class="info">
+                    <p class="topic">@localizer["Developer"]</p>
+                    <p class="value">Copy Paste Studios</p>
+                </div>
+                <div class="info">
+                    <p class="topic">@localizer["Publisher"]</p>
+                    <p class="value">Devolver Digital</p>
+                </div>
+                <div class="info">
+                    <p class="topic">@localizer["Release date"]</p>
+                    <p class="value">02/07/3041</p>
+                </div>
+            </div>
+
+            <div class="share-panel">
+                <div class="button contains-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="svg css-uwwqev" viewBox="0 0 16 18">
+                        <svg width="16" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 12.4003C12.3667 12.4003 11.8 12.6503 11.3667 13.042L5.425 9.58366C5.46667 9.39199 5.5 9.20033 5.5 9.00033C5.5 8.80033 5.46667 8.60866 5.425 8.41699L11.3 4.99199C11.75 5.40866 12.3417 5.66699 13 5.66699C14.3833 5.66699 15.5 4.55033 15.5 3.16699C15.5 1.78366 14.3833 0.666992 13 0.666992C11.6167 0.666992 10.5 1.78366 10.5 3.16699C10.5 3.36699 10.5333 3.55866 10.575 3.75033L4.7 7.17533C4.25 6.75866 3.65833 6.50033 3 6.50033C1.61667 6.50033 0.5 7.61699 0.5 9.00033C0.5 10.3837 1.61667 11.5003 3 11.5003C3.65833 11.5003 4.25 11.242 4.7 10.8253L10.6333 14.292C10.5917 14.467 10.5667 14.6503 10.5667 14.8337C10.5667 16.1753 11.6583 17.267 13 17.267C14.3417 17.267 15.4333 16.1753 15.4333 14.8337C15.4333 13.492 14.3417 12.4003 13 12.4003Z" fill="currentColor"></path>
+                        </svg>
+                    </svg>
+                    <p>@localizer["Share"]</p>
+                </div>
+                <div class="button contains-svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="svg css-uwwqev" viewBox="0 0 18 14" id="flag-(3)" stroke="none" stroke-width="1" fill="currentColor" fill-rule="nonzero">
+                        <path d="M13.0113,0.9438 C12.9504,0.9195 11.4933,0.3447 9.7668,0.3447 C8.7366,0.3447 7.8258,0.5508 7.0596,0.9573 C6.3807,1.3176 5.4597,1.5 4.3221,1.5 C2.7297,1.5 1.1595,1.1364 0.6,0.9921 L0.6,0.3 C0.6,0.1341 0.4659,0 0.3,0 C0.1341,0 3.64153152e-13,0.1341 3.64153152e-13,0.3 L3.64153152e-13,1.2 C3.64153152e-13,1.2042 0.0021,1.2078 0.0024,1.212 C0.0024,1.2156 3.64153152e-13,1.2186 3.64153152e-13,1.2222 L3.64153152e-13,9.9 L3.64153152e-13,10.2222 L3.64153152e-13,17.7 C3.64153152e-13,17.8659 0.1341,18 0.3,18 C0.4659,18 0.6,17.8659 0.6,17.7 L0.6,10.6119 C1.2819,10.7811 2.7729,11.1 4.3221,11.1 C5.5587,11.1 6.5742,10.8936 7.3407,10.4874 C8.0196,10.1271 8.8356,9.9444 9.7668,9.9444 C11.3739,9.9444 12.7749,10.4952 12.7887,10.5006 C12.8814,10.5378 12.9858,10.5264 13.0683,10.47 C13.1505,10.4148 13.2,10.3218 13.2,10.2222 L13.2,1.2222 C13.2,1.0995 13.1253,0.9894 13.0113,0.9438 Z" id="Path"></path>
+                    </svg>
+                    <p>@localizer["Report"]</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    @for (int i = 0; i < 50; i++)
+    {
+        <p>@i</p>
+    }
+</div>
 
 @code {
     GameModel game;
 
     [Parameter]
     public Guid Id { get; set; }
+
+    [CascadingParameter]
+    public CultureInfo CurrentCulture { get; set; }
 
     protected override async Task OnInitializedAsync()
     {

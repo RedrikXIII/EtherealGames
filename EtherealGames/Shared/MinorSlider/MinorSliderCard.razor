@@ -15,7 +15,7 @@
             </div>
             <div class="price-change">
                 <p class="initial-price">UAH @Game.Price</p>
-                <p class="new-price">UAH @GetPrice(Game.Price, Game.Discount)</p>
+                <p class="new-price">UAH @Game.GetPrice()</p>
             </div>
         }
         else if (Game.Price == 0)
@@ -27,7 +27,7 @@
         else 
         {
             <div class="price-change">
-                <p class="new-price">UAH @GetPrice(Game.Price, Game.Discount) </p>
+                <p class="new-price">UAH @Game.GetPrice() </p>
             </div>
         }
     </div>
@@ -40,10 +40,5 @@
     private void OpenGame()
     {
         navigation.NavigateTo($"/game/{Game.Id}");
-    }
-
-    public double GetPrice(double price, double sale)
-    {
-        return Math.Round(price - price * sale / 100, 2);
     }
 }

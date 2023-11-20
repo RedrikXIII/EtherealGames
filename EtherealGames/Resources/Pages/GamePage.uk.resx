@@ -117,10 +117,46 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Base Game" xml:space="preserve">
-    <value>BASE GAME</value>
+  <data name="Add to Cart" xml:space="preserve">
+    <value>ДОДАТИ ДО КОШИКУ</value>
+  </data>
+  <data name="Add to Wishlist" xml:space="preserve">
+    <value>ДОДАТИ ДО СПИСКУ БАЖАНЬ</value>
+  </data>
+  <data name="Base game" xml:space="preserve">
+    <value>БАЗОВА ГРА</value>
+  </data>
+  <data name="Buy now" xml:space="preserve">
+    <value>КУПИТИ ЗАРАЗ</value>
+  </data>
+  <data name="Developer" xml:space="preserve">
+    <value>Розрібник</value>
+  </data>
+  <data name="FAQ" xml:space="preserve">
+    <value>Поширені запитання</value>
+  </data>
+  <data name="Features" xml:space="preserve">
+    <value>Особливості</value>
   </data>
   <data name="Free" xml:space="preserve">
-    <value>Free</value>
+    <value>Безкоштовно</value>
+  </data>
+  <data name="Genres" xml:space="preserve">
+    <value>Жанри</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Огляд</value>
+  </data>
+  <data name="Publisher" xml:space="preserve">
+    <value>Видавець</value>
+  </data>
+  <data name="Release date" xml:space="preserve">
+    <value>Дата виходу</value>
+  </data>
+  <data name="Report" xml:space="preserve">
+    <value>ДОПОВІСТИ</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>ПОДІЛИТИСЬ</value>
   </data>
 </root>

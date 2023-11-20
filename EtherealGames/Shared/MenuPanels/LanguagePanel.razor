@@ -1,7 +1,7 @@
 ﻿<div class="language-panel">
     @foreach (var culture in cultures)
     {
-        <p class="language @(CurrentCulture == culture ? "active" : "")" 
+        <p class="language @(CurrentCulture.Name == culture.Name ? "active" : "")" 
             @onclick="() => ChoiceCulture(culture)">
             @culture.NativeName.MakeCapital()
         </p>
@@ -20,11 +20,6 @@
         new CultureInfo("uk"),
         new CultureInfo("en")
     };
-
-    protected async override Task OnInitializedAsync()
-    {
-        await OnCultureChoice.InvokeAsync(cultures[1]);
-    }
 
     private async Task ChoiceCulture(CultureInfo culture)
     {

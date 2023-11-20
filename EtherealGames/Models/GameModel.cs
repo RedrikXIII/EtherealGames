@@ -8,5 +8,10 @@
         public double Discount { get; set; }
         public string SmallImageUrl { get; set; }
         public bool IsMainSlider { get; set; }
+
+        public double GetPrice()
+        {
+           return Math.Round(Price - Price * Discount / 100, 2);
+        }
     }
 }
